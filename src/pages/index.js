@@ -7,6 +7,7 @@ const MOBILE_QUERY = `(max-width: 767px)`;
 const TABLET_QUERY = `(max-width: 992px)`;
 
 const IndexPage = ({ data }) => {
+  // List of images
   const desktopImage = getImage(
     data.hero.illustration.localFile.childImageSharp.desktopImage
   );
@@ -20,6 +21,7 @@ const IndexPage = ({ data }) => {
     data.hero.illustration.localFile.childImageSharp.greyScale
   );
 
+  // Preparing the images with withArtDirection the first argument is the default image to display You then pass an array of “art directed images” which are objects with media and image values.
   const images = withArtDirection(desktopImage, [
     {
       media: TABLET_QUERY,
@@ -54,6 +56,7 @@ const Container = styled.div`
   align-items: center;
 `;
 
+// Overiding the default width and height on each breakpoint
 const StyledImage = styled(GatsbyImage)`
   @media (max-width: 992px) {
     width: 400px !important;
